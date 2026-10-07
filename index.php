@@ -13,6 +13,8 @@
     <form action="" method="POST">
         <label for="nominal">Nominal:</label>
         <input type="number" id="nominal" name="nominal" required>
+        <br>
+        <br>
 
         <label for="mataUang">Mata Uang:</label>
         <select id="mataUang" name="mataUang">
@@ -20,7 +22,8 @@
             <option value="SGD">SGD - Dollar</option>
             <option value="JPY">JPY - Yen</option>
         </select>
-
+        <br>
+        <br>
         <button type="submit" name="submit">Konversi ke IDR</button>
     </form>
 
