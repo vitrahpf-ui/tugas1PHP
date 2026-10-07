@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Kurs</title>
+    <style>
+          * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; 
+      }
+    </style>
 </head>
 <body>
       <?php
@@ -59,7 +71,7 @@
         <label for="">Hasil konversi</label>
         <br>
         <br>
-        <input type="text" value="<?php echo $hasil; ?>">
+        <input type="text" value="<?php echo $hasil; ?>" disabled>
     </form>
 
     
