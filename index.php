@@ -1,27 +1,64 @@
-<?php
-function konversiKeIDR($nominal, $mataUang){
-    if ($nominal <= 0) {
-        return "Nominal harus lebih dari 0!";
-    }
-    switch ($mataUang) {
-        case "USD":
-        $total = $nominal * 17884;
-        break;
-        case "SGD":
-        $total = $nominal * 13500;
-        break;
-        case "JPY":
-        $total = $nominal * 115;
-        break;
-        default:
-        return "Mata uang tidak dikenali!";
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kurs</title>
+</head>
+<body>
+
+    <h2>Kalkulator Kurs</h2>
+    
+
+    <form action="" method="POST">
+        <label for="nominal">Nominal:</label>
+        <input type="number" id="nominal" name="nominal" required>
+
+        <label for="mataUang">Mata Uang:</label>
+        <select id="mataUang" name="mataUang">
+            <option value="USD">USD - Dollar</option>
+            <option value="SGD">SGD - Dollar</option>
+            <option value="JPY">JPY - Yen</option>
+        </select>
+
+        <button type="submit" name="submit">Konversi ke IDR</button>
+    </form>
+
+    <hr>
+
+    <?php
+    
+    function konversiKeIDR($nominal, $mataUang){
+        if ($nominal <= 0) {
+            return "Nominal harus lebih dari 0!";
+        }
+        switch ($mataUang) {
+            case "USD":
+                $total = $nominal * 17884;
+                break;
+            case "SGD":
+                $total = $nominal * 13500;
+                break;
+            case "JPY":
+                $total = $nominal * 115;
+                break;
+            default:
+                return "Mata uang tidak dikenali!";
+        }
+
+        return "Rp " . $total;
     }
 
-    return "Rp " . $total;
-}
-$usd = 100; 
-echo konversiKeIDR($usd, "USD");
-echo "<br>";
-$jpy = 200;
-echo konversiKeIDR($jpy, "JPY");
-?>
+    
+    if (isset($_POST['submit'])) {
+        $nominal = $_POST['nominal'];
+        $mataUang = $_POST['mataUang'];
+
+        
+        $hasil = konversiKeIDR($nominal, $mataUang);
+        echo "Hasil: " . $hasil;
+    }
+    ?>
+
+</body>
+</html>
